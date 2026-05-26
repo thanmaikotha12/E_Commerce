@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Page</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <h2 class="text-center text-success mb-4">
+        Cart Products
+    </h2>
+
+    {% for data in cart_data %}
+
+    <div class="card mb-3 shadow">
+
+        <div class="card-body">
+
+            <h5 class="card-title">
+                Cart ID : {{data.cart_id}}
+            </h5>
+
+            <p class="card-text">
+                Product ID : {{data.product_id}}
+            </p>
+
+            <p class="card-text">
+                Price : {{data.p_price}}
+            </p>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

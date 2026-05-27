@@ -14,12 +14,12 @@
     <p class="card-text">Type: {{data.p_type}}</p>
       <p class="card-text">Quantity: {{data.p_quantity}}</p>
       <p class="card-text">Price: {{data.p_price}}</p>
-      <a href="#" class="btn btn-primary">Update item</a>
       <form action="/product/delete_by_id/{{data.id}}/" method="POST">
           {% csrf_token %}
           <button class="btn btn-primary" type="submit">Delete Product</button>
       </form>
       <a href="/product/add_to_cart/{{data.id}}/" class="btn btn-success">Add To Cart</a>
+      <a href="/product/update_product/{{data.id}}/" class="btn btn-primary">Update Item </a>
   </div>
 </div>
 {% endfor %}

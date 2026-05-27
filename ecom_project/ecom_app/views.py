@@ -61,6 +61,51 @@ def add_to_cart(request, product_id):
         "success.html",
         {"message":"Product Added to Cart Successfully"}
     )
+def update_product(request, product_id):
+
+    data = Product.objects.get(id=product_id)
+
+    if request.method == 'POST':
+
+        data.p_name = request.POST.get('p_name')
+        data.p_type = request.POST.get('p_type')
+        data.p_price = request.POST.get('p_price')
+        data.p_quantity = request.POST.get('p_quantity')
+
+        data.save()
+
+        return render(
+            request,
+            "success.html",
+            {"message":"Product Updated Successfully"}
+        )
+
+    return render(
+        request,
+        "update_product.html",
+        {"product": data}
+    )
+def remove_from_cart(request, cart_id):
+
+    data = Cart.objects.get(cart_id=cart_id)
+
+    data.delete()
+
+    return render(
+        request,
+        "success.html",
+        {"message":"Product Removed From Cart Successfully"}
+    )
+def view_cart(request):
+
+    data = Cart.objects.all().values()
+
+    return render(
+        request,
+        "cart.html",
+        {"cart_data": list(data)}
+    )
+
 
 
 
